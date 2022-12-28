@@ -1,0 +1,100 @@
+body {
+  background-color: rgb(240, 240, 240);
+  font-family: sans-serif;
+}
+
+.purple {
+  background-color: rgb(86, 43, 129);
+  margin-bottom: -20px;
+  font-family: sans-serif;
+  color: white;
+  font-size: 1.2rem;
+  padding-left: 30px;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+.form-box {
+  padding: 20px;
+  font-weight: 600;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+}
+
+.placeholder {
+  height: 350px;
+  width: 100%;
+}
+
+.title-input {
+  height: 200px;
+  margin-top: -30px;
+}
+
+@media screen and (min-width: 768px) {
+  .title-input {
+    margin-top: 90px;
+    margin-left: -50px;
+    margin-right: 50px;
+  }
+
+  .placeholder {
+    max-width: 332px;
+  }
+
+  .code-journal {
+    padding-left: 25px;
+  }
+
+  .form-box {
+    padding-right: 50px;
+  }
+
+  .bottom-section {
+    padding-right: 50px;
+  }
+
+  .notes-section {
+    padding-top: 40px;
+  }
+}
+
+.input-text {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  resize: none;
+  border: 0.12rem solid;
+  border-color: rgb(184, 184, 184);
+  border-radius: 8px;
+  outline-color: rgb(86, 43, 129);
+}
+
+.notes-section {
+  margin-top: -70px;
+}
+
+#save-button {
+  float: right;
+  width: 90px;
+  height: 36px;
+  border-color: rgb(86, 43, 129);
+  background-color: rgb(86, 43, 129);
+  border-radius: 8px;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  font-weight: 500;
+  border-style: none;
+}
+
+.bottom-section {
+  margin-bottom: 80px;
+}
