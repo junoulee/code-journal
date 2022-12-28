@@ -27,60 +27,52 @@
   </header>
   <main class="container">
     <div data-view="entry-form">
+      <form class="journal-form">
+        <div class="row">
 
-      <div class="row">
-
-        <div class="column-half">
-          <div class="form-box">
-            <h2>New Entry</h2>
-            <div class="image">
-              <img class="image"
+          <div class="column-half">
+            <div class="form-box">
+              <h2>New Entry</h2>
+              <div class="image">
+                <img class="placeholder"
      src="./images/placeholder-image-square.jpg"
      alt="Photo URL Image">
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="column-half">
-          <div class="form-box">
-            <div class="title-input">
-              <form class="journal-form">
+          <div class="column-half">
+
+            <div class="form-box">
+              <div class="title-input">
                 <p>Title</p>
                 <input required class="input-text" name="title" type="text" size="15"/>
-
-
-
                 <p>Photo URL</p>
                 <input required class="input-text" name="url" type="url" size="15"
-  id="photoURL"  />
-
-              </form>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="row">
-
-        <div class="column-full">
-          <div class="bottom-section">
-            <div class="form-box">
-              <div class="notes-section">
-                <form class="journal-form">
-                  <p>Notes</p>
-                  <textarea required class="input-text" name="notes" cols="20" rows="8"  ></textarea>
-
-
-                  <input type="submit" name="save" id="save-button"
- value="SAVE" />
-                </form>
+  id="photo-url"  />
               </div>
             </div>
           </div>
         </div>
 
-      </div>
+        <div class="row">
+
+          <div class="column-full">
+            <div class="bottom-section">
+              <div class="form-box">
+                <div class="notes-section">
+                  <p>Notes</p>
+                  <textarea required class="input-text" name="notes" cols="20" rows="8"  ></textarea>
+
+                  <input type="submit" name="save" id="save-button"
+ value="SAVE" />
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
 
     </div>
 
