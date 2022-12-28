@@ -1,0 +1,95 @@
+body {
+  background-color: rgb(240, 240, 240);
+}
+
+.purple {
+  background-color: rgb(86, 43, 129);
+  margin-bottom: -20px;
+}
+
+.code-journal {
+  display: flex;
+  color: white;
+  margin-top: 0;
+  height: 125%;
+  font-family: sans-serif;
+  font-weight: 100;
+  align-items: center;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.form-box {
+  padding: 20px;
+}
+
+.image {
+  display: flex;
+  width: 100%;
+  height: 350px;
+  justify-content: center;
+  object-fit: cover;
+}
+
+.title-input {
+  height: 200px;
+  margin-top: -30px;
+}
+
+@media screen and (min-width: 768px) {
+  .title-input {
+    margin-top: 70px;
+    margin-left: -80px;
+    margin-right: 50px;
+  }
+
+  .code-journal {
+    padding-left: 25px;
+  }
+
+  .form-box {
+    padding-right: 50px;
+  }
+
+  .bottom-section {
+    padding-right: 50px;
+  }
+
+  .notes-section {
+    padding-top: 40px;
+  }
+}
+
+.input-text {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  resize: none;
+  border: 0.12rem solid;
+  border-color: rgb(184, 184, 184);
+  border-radius: 8px;
+}
+
+.notes-section {
+  margin-top: -80px;
+}
+
+#save-button {
+  float: right;
+  margin-top: 15px;
+  width: 90px;
+  height: 36px;
+  border-color: rgb(86, 43, 129);
+  background-color: rgb(86, 43, 129);
+  border-radius: 8px;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  font-weight: 500;
+  border-style: none;
+}
+
+.bottom-section {
+  margin-bottom: 80px;
+}

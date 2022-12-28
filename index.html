@@ -16,12 +16,75 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <header>
+  <header class="purple">
     <div class="container">
+      <div class="row">
+        <div class="column-full">
+          <h4 class="code-journal">Code Journal</h4>
+        </div>
+      </div>
     </div>
   </header>
   <main class="container">
-    <div data-view="entry-form"></div>
+    <div data-view="entry-form">
+
+      <div class="row">
+
+        <div class="column-half">
+          <div class="form-box">
+            <h2>New Entry</h2>
+            <div class="image">
+              <img class="image"
+     src="./images/placeholder-image-square.jpg"
+     alt="Photo URL Image">
+            </div>
+          </div>
+        </div>
+
+        <div class="column-half">
+          <div class="form-box">
+            <div class="title-input">
+              <form class="journal-form">
+                <p>Title</p>
+                <input required class="input-text" name="title" type="text" size="15"/>
+
+
+
+                <p>Photo URL</p>
+                <input required class="input-text" name="url" type="url" size="15"
+  id="photoURL"  />
+
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="column-full">
+          <div class="bottom-section">
+            <div class="form-box">
+              <div class="notes-section">
+                <form class="journal-form">
+                  <p>Notes</p>
+                  <textarea required class="input-text" name="notes" cols="20" rows="8"  ></textarea>
+
+
+                  <input type="submit" name="save" id="save-button"
+ value="SAVE" />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
     <div data-view="entries" class="hidden"></div>
   </main>
   <script src="js/data.js"></script>
