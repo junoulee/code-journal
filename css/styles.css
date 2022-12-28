@@ -6,19 +6,10 @@ body {
 .purple {
   background-color: rgb(86, 43, 129);
   margin-bottom: -20px;
-}
-
-.code-journal {
-  display: flex;
-  color: white;
-  margin-top: 0;
-  height: 125%;
   font-family: sans-serif;
-  font-weight: 100;
-  align-items: center;
-  padding-left: 15px;
-  padding-bottom: 15px;
+  color: white;
   font-size: 1.2rem;
+  padding-left: 30px;
 }
 
 h2 {
@@ -47,7 +38,7 @@ h2 {
 
 @media screen and (min-width: 768px) {
   .title-input {
-    margin-top: 70px;
+    margin-top: 90px;
     margin-left: -50px;
     margin-right: 50px;
   }
@@ -77,6 +68,8 @@ h2 {
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
   resize: none;
   border: 0.12rem solid;
   border-color: rgb(184, 184, 184);
@@ -85,12 +78,11 @@ h2 {
 }
 
 .notes-section {
-  margin-top: -80px;
+  margin-top: -70px;
 }
 
 #save-button {
   float: right;
-  margin-top: 15px;
   width: 90px;
   height: 36px;
   border-color: rgb(86, 43, 129);

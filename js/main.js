@@ -8,8 +8,6 @@ function showPic(event) {
 
 photoPreview.addEventListener('input', showPic);
 
-data.nextEntryId = 0;
-
 function storeValues(event) {
   event.preventDefault();
   var titleValue = $form.elements.title.value;
@@ -18,9 +16,8 @@ function storeValues(event) {
   var fieldEntries = { title: titleValue, url: urlValue, notes: notesValue, entryId: data.nextEntryId };
   data.entries.unshift(fieldEntries);
 
-  if (data.entries.length++) {
-    data.nextEntryId++;
-  }
+  data.nextEntryId++;
+
   placeHolder.setAttribute('src', './images/placeholder-image-square.jpg');
   $form.reset();
 
