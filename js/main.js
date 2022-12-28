@@ -8,13 +8,22 @@ function showPic(event) {
 
 photoPreview.addEventListener('input', showPic);
 
+data.nextEntryId = 0;
+
 function storeValues(event) {
   event.preventDefault();
   var titleValue = $form.elements.title.value;
   var urlValue = $form.elements.url.value;
   var notesValue = $form.elements.notes.value;
-  var fieldEntries = { title: titleValue, url: urlValue, notes: notesValue, entryId: '' };
-  return fieldEntries;
+  var fieldEntries = { title: titleValue, url: urlValue, notes: notesValue, entryId: data.nextEntryId };
+  data.entries.unshift(fieldEntries);
+
+  if (data.entries.length++) {
+    data.nextEntryId++;
+  }
+  placeHolder.setAttribute('src', './images/placeholder-image-square.jpg');
+  $form.reset();
 
 }
+
 $form.addEventListener('submit', storeValues);

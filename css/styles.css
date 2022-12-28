@@ -1,5 +1,6 @@
 body {
   background-color: rgb(240, 240, 240);
+  font-family: sans-serif;
 }
 
 .purple {
@@ -17,11 +18,16 @@ body {
   align-items: center;
   padding-left: 15px;
   padding-bottom: 15px;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
+}
+
+h2 {
+  font-size: 2rem;
 }
 
 .form-box {
   padding: 20px;
+  font-weight: 600;
 }
 
 .image {
@@ -30,7 +36,6 @@ body {
 }
 
 .placeholder {
-  display: flex;
   height: 350px;
   width: 100%;
 }
@@ -76,6 +81,7 @@ body {
   border: 0.12rem solid;
   border-color: rgb(184, 184, 184);
   border-radius: 8px;
+  outline-color: rgb(86, 43, 129);
 }
 
 .notes-section {
