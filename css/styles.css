@@ -26,12 +26,14 @@ h2 {
   justify-content: center;
 }
 
-.placeholder {
+.placeholder,
+.saved-photo {
   height: 350px;
   width: 100%;
 }
 
-.title-input {
+.title-input,
+.description-text {
   height: 200px;
   margin-top: -30px;
 }
@@ -43,7 +45,8 @@ h2 {
     margin-right: 50px;
   }
 
-  .placeholder {
+  .placeholder,
+  .saved-photo {
     max-width: 332px;
   }
 
@@ -81,7 +84,8 @@ h2 {
   margin-top: -70px;
 }
 
-#save-button {
+#save-button,
+#new-button {
   float: right;
   width: 90px;
   height: 36px;
@@ -97,4 +101,8 @@ h2 {
 
 .bottom-section {
   margin-bottom: 80px;
+}
+
+.journal-entries {
+  list-style: none;
 }
