@@ -3,7 +3,7 @@ var placeHolder = document.querySelector('.placeholder');
 var $form = document.querySelector('.journal-form');
 var hiddenDiv = document.querySelector('.journal-entries');
 var toggler = document.querySelector('.no-entries');
-var savedEntries = document.querySelectorAll('.saved-entries');
+var savedEntries = document.querySelectorAll('.entries');
 var $entries = document.querySelector('.entries');
 var $entryForm = document.querySelector('.entry-form');
 var isOn = true;
@@ -91,8 +91,7 @@ function toggleNoEntries(event) {
   if (isOn === true) {
     toggler.className = 'no-entries';
     isOn = false;
-
-    // savedEntries.className = 'hidden';
+    savedEntries.className = 'hidden';
 
   } else {
     toggler.className = 'no-entries-hidden';
@@ -101,7 +100,7 @@ function toggleNoEntries(event) {
   }
 
 }
-savedEntries.className = 'hidden';
+
 function viewSwap(view) {
 
   if ($entries.getAttribute('data-view') === view) {
