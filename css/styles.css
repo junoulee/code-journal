@@ -97,6 +97,25 @@ h2 {
   letter-spacing: 1px;
   font-weight: 500;
   border-style: none;
+  text-align: center;
+  vertical-align: center;
+}
+
+#new-button {
+  float: right;
+  width: 90px;
+  height: 36px;
+  border-color: rgb(86, 43, 129);
+  background-color: rgb(86, 43, 129);
+  border-radius: 8px;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  font-weight: 500;
+  border-style: none;
+  text-align: center;
+  vertical-align: center;
+  padding-top: 10px;
 }
 
 .bottom-section {
@@ -105,4 +124,41 @@ h2 {
 
 .journal-entries {
   list-style: none;
+}
+
+.saved-photo {
+  max-width: 332px;
+  align-items: center;
+}
+
+.name-title,
+.saved-text {
+  padding-right: 80px;
+}
+
+.smaller-text {
+  font-size: 0.85rem;
+  padding-left: 25px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.no-entries {
+  padding-bottom: 700px;
+  padding-top: 80px;
+  text-align: center;
+}
+
+.no-entries-hidden {
+  padding-bottom: 700px;
+  padding-top: 80px;
+  text-align: center;
+  display: none;
+}
+
+#purple-hidden {
+  display: none;
 }
