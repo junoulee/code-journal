@@ -91,14 +91,13 @@ function toggleNoEntries(event) {
   if (isOn === true) {
     toggler.className = 'no-entries';
     isOn = false;
-    savedEntries.className = 'hidden';
 
   } else {
     toggler.className = 'no-entries-hidden';
     isOn = true;
 
   }
-
+  return savedEntries;
 }
 
 function viewSwap(view) {
@@ -107,6 +106,7 @@ function viewSwap(view) {
     $entryForm.className = 'hidden';
     $entries.className = 'entries';
     data.view = 'entries';
+
   } else if ($entryForm.getAttribute('data-view') === view) {
     $entries.className = 'hidden';
     $entryForm.className = 'entry-form';
