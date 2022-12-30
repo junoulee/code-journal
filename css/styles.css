@@ -84,8 +84,7 @@ h2 {
   margin-top: -70px;
 }
 
-#save-button,
-#new-button {
+#save-button {
   float: right;
   width: 90px;
   height: 36px;
@@ -116,6 +115,7 @@ h2 {
   text-align: center;
   vertical-align: center;
   padding-top: 10px;
+  margin-right: 20px;
 }
 
 .bottom-section {
@@ -150,15 +150,12 @@ a {
   padding-bottom: 700px;
   padding-top: 80px;
   text-align: center;
+  max-height: 960px;
 }
 
 .no-entries-hidden {
   padding-bottom: 700px;
   padding-top: 80px;
   text-align: center;
-  display: none;
-}
-
-#purple-hidden {
   display: none;
 }
