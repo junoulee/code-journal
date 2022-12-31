@@ -3,7 +3,6 @@ var placeHolder = document.querySelector('.placeholder');
 var $form = document.querySelector('.journal-form');
 var hiddenDiv = document.querySelector('.journal-entries');
 var toggler = document.querySelector('.no-entries');
-
 var $entries = document.querySelector('.entries');
 var $entryForm = document.querySelector('.entry-form');
 
@@ -77,18 +76,18 @@ function renderEntry(entry) {
 }
 
 function dataLoop() {
-  if (isOn === false) {
+  if (isOn === true) {
     for (var i = 0; i < data.entries.length; i++) {
       var entriesDOM = renderEntry(data.entries[i]);
-      hiddenDiv.appendChild(entriesDOM);
 
+      hiddenDiv.appendChild(entriesDOM);
     }
   }
+
   viewSwap(data.view);
   if (data.entries) {
     isOn = true;
     toggleNoEntries();
-
   }
 }
 
@@ -97,15 +96,16 @@ document.addEventListener('DOMContentLoaded', dataLoop);
 function toggleNoEntries(event) {
   if (isOn === true) {
     toggler.className = 'no-entries';
-
     isOn = false;
-
+    if (data.entries) {
+      toggler.className = 'no-entries-hidden';
+    } if (data.entries.length === 0) {
+      toggler.className = 'no-entries';
+    }
   } else {
     toggler.className = 'no-entries-hidden';
     isOn = true;
-
   }
-
 }
 
 function viewSwap(view) {
