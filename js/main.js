@@ -3,9 +3,10 @@ var placeHolder = document.querySelector('.placeholder');
 var $form = document.querySelector('.journal-form');
 var hiddenDiv = document.querySelector('.journal-entries');
 var toggler = document.querySelector('.no-entries');
-var savedEntries = document.querySelectorAll('.entries');
+
 var $entries = document.querySelector('.entries');
 var $entryForm = document.querySelector('.entry-form');
+
 var isOn = true;
 
 function showPic(event) {
@@ -38,6 +39,7 @@ function storeValues(event) {
 $form.addEventListener('submit', storeValues);
 
 function renderEntry(entry) {
+
   var bullets = document.createElement('li');
   bullets.classList.add('saved-entries');
 
@@ -71,25 +73,31 @@ function renderEntry(entry) {
   savedText.appendChild(notesValueText);
 
   return bullets;
+
 }
 
 function dataLoop() {
-  for (var i = 0; i < data.entries.length; i++) {
-    var entriesDOM = renderEntry(data.entries[i]);
-    hiddenDiv.appendChild(entriesDOM);
+  if (isOn === false) {
+    for (var i = 0; i < data.entries.length; i++) {
+      var entriesDOM = renderEntry(data.entries[i]);
+      hiddenDiv.appendChild(entriesDOM);
 
+    }
   }
   viewSwap(data.view);
   if (data.entries) {
     isOn = true;
     toggleNoEntries();
+
   }
 }
+
 document.addEventListener('DOMContentLoaded', dataLoop);
 
 function toggleNoEntries(event) {
   if (isOn === true) {
     toggler.className = 'no-entries';
+
     isOn = false;
 
   } else {
@@ -97,7 +105,7 @@ function toggleNoEntries(event) {
     isOn = true;
 
   }
-  return savedEntries;
+
 }
 
 function viewSwap(view) {
