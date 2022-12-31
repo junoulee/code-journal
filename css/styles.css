@@ -16,6 +16,10 @@ h2 {
   font-size: 2rem;
 }
 
+.entries-page {
+  padding: 20px 40px;
+}
+
 .form-box {
   padding: 20px;
   font-weight: 600;
@@ -36,35 +40,6 @@ h2 {
 .description-text {
   height: 200px;
   margin-top: -30px;
-}
-
-@media screen and (min-width: 768px) {
-  .title-input {
-    margin-top: 90px;
-    margin-left: -50px;
-    margin-right: 50px;
-  }
-
-  .placeholder,
-  .saved-photo {
-    max-width: 332px;
-  }
-
-  .code-journal {
-    padding-left: 25px;
-  }
-
-  .form-box {
-    padding-right: 50px;
-  }
-
-  .bottom-section {
-    padding-right: 50px;
-  }
-
-  .notes-section {
-    padding-top: 40px;
-  }
 }
 
 .input-text {
@@ -116,6 +91,7 @@ h2 {
   vertical-align: center;
   padding-top: 10px;
   margin-right: 20px;
+  text-decoration: none;
 }
 
 .bottom-section {
@@ -141,7 +117,7 @@ h2 {
   padding-left: 25px;
 }
 
-a {
+#entry-button {
   text-decoration: none;
   color: white;
 }
@@ -150,7 +126,6 @@ a {
   padding-bottom: 700px;
   padding-top: 80px;
   text-align: center;
-  max-height: 960px;
 }
 
 .no-entries-hidden {
@@ -158,4 +133,33 @@ a {
   padding-top: 80px;
   text-align: center;
   display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .title-input {
+    margin-top: 90px;
+    margin-left: -50px;
+    margin-right: 50px;
+  }
+
+  .placeholder,
+  .saved-photo {
+    max-width: 332px;
+  }
+
+  .code-journal {
+    padding-left: 25px;
+  }
+
+  .form-box {
+    padding-right: 50px;
+  }
+
+  .bottom-section {
+    padding-right: 50px;
+  }
+
+  .notes-section {
+    padding-top: 40px;
+  }
 }
