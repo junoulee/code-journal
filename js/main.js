@@ -6,8 +6,6 @@ var toggler = document.querySelector('.no-entries');
 var $entries = document.querySelector('.entries');
 var $entryForm = document.querySelector('.entry-form');
 
-var isOn = true;
-
 function showPic(event) {
   placeHolder.setAttribute('src', event.target.value);
 }
@@ -27,10 +25,7 @@ function storeValues(event) {
   hiddenDiv.prepend(fieldList);
   placeHolder.setAttribute('src', './images/placeholder-image-square.jpg');
   viewSwap('entries');
-  if (data.entries) {
-    isOn = false;
-    toggleNoEntries();
-  }
+  toggleNoEntries();
   $form.reset();
 
 }
@@ -76,17 +71,16 @@ function renderEntry(entry) {
 }
 
 function dataLoop() {
-  if (isOn === true) {
-    for (var i = 0; i < data.entries.length; i++) {
-      var entriesDOM = renderEntry(data.entries[i]);
 
-      hiddenDiv.appendChild(entriesDOM);
-    }
+  for (var i = 0; i < data.entries.length; i++) {
+    var entriesDOM = renderEntry(data.entries[i]);
+
+    hiddenDiv.appendChild(entriesDOM);
   }
 
   viewSwap(data.view);
   if (data.entries) {
-    isOn = true;
+
     toggleNoEntries();
   }
 }
@@ -94,17 +88,10 @@ function dataLoop() {
 document.addEventListener('DOMContentLoaded', dataLoop);
 
 function toggleNoEntries(event) {
-  if (isOn === true) {
-    toggler.className = 'no-entries';
-    isOn = false;
-    if (data.entries) {
-      toggler.className = 'no-entries-hidden';
-    } if (data.entries.length === 0) {
-      toggler.className = 'no-entries';
-    }
-  } else {
+  if (data.entries.length > 0) {
     toggler.className = 'no-entries-hidden';
-    isOn = true;
+  } else {
+    toggler.className = 'no-entries';
   }
 }
 
