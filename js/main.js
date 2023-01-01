@@ -79,10 +79,9 @@ function dataLoop() {
   }
 
   viewSwap(data.view);
-  if (data.entries) {
 
-    toggleNoEntries();
-  }
+  toggleNoEntries();
+
 }
 
 document.addEventListener('DOMContentLoaded', dataLoop);
