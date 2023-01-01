@@ -16,6 +16,10 @@ h2 {
   font-size: 2rem;
 }
 
+.entries-page {
+  padding: 20px 40px;
+}
+
 .form-box {
   padding: 20px;
   font-weight: 600;
@@ -26,42 +30,16 @@ h2 {
   justify-content: center;
 }
 
-.placeholder {
+.placeholder,
+.saved-photo {
   height: 350px;
   width: 100%;
 }
 
-.title-input {
+.title-input,
+.description-text {
   height: 200px;
   margin-top: -30px;
-}
-
-@media screen and (min-width: 768px) {
-  .title-input {
-    margin-top: 90px;
-    margin-left: -50px;
-    margin-right: 50px;
-  }
-
-  .placeholder {
-    max-width: 332px;
-  }
-
-  .code-journal {
-    padding-left: 25px;
-  }
-
-  .form-box {
-    padding-right: 50px;
-  }
-
-  .bottom-section {
-    padding-right: 50px;
-  }
-
-  .notes-section {
-    padding-top: 40px;
-  }
 }
 
 .input-text {
@@ -93,8 +71,95 @@ h2 {
   letter-spacing: 1px;
   font-weight: 500;
   border-style: none;
+  text-align: center;
+  vertical-align: center;
+}
+
+#new-button {
+  float: right;
+  width: 90px;
+  height: 36px;
+  border-color: rgb(86, 43, 129);
+  background-color: rgb(86, 43, 129);
+  border-radius: 8px;
+  color: rgb(255, 255, 255);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  font-weight: 500;
+  border-style: none;
+  text-align: center;
+  vertical-align: center;
+  padding-top: 10px;
+  margin-right: 20px;
+  text-decoration: none;
 }
 
 .bottom-section {
   margin-bottom: 80px;
+}
+
+.journal-entries {
+  list-style: none;
+}
+
+.saved-photo {
+  max-width: 332px;
+  align-items: center;
+}
+
+.name-title,
+.saved-text {
+  padding-right: 80px;
+}
+
+.smaller-text {
+  font-size: 0.85rem;
+  padding-left: 25px;
+}
+
+#entry-button {
+  text-decoration: none;
+  color: white;
+}
+
+.no-entries {
+  padding-bottom: 700px;
+  padding-top: 80px;
+  text-align: center;
+}
+
+.no-entries-hidden {
+  padding-bottom: 700px;
+  padding-top: 80px;
+  text-align: center;
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .title-input {
+    margin-top: 90px;
+    margin-left: -50px;
+    margin-right: 50px;
+  }
+
+  .placeholder,
+  .saved-photo {
+    max-width: 332px;
+  }
+
+  .code-journal {
+    padding-left: 25px;
+  }
+
+  .form-box {
+    padding-right: 50px;
+  }
+
+  .bottom-section {
+    padding-right: 50px;
+  }
+
+  .notes-section {
+    padding-top: 40px;
+  }
 }
