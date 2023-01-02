@@ -36,6 +36,7 @@ function renderEntry(entry) {
 
   var bullets = document.createElement('li');
   bullets.classList.add('saved-entries');
+  bullets.setAttribute('data-entry-id', entry.entryId);
 
   var listRow = document.createElement('div');
   listRow.classList.add('row');
@@ -59,6 +60,12 @@ function renderEntry(entry) {
   var titleValueText = document.createTextNode(entry.title);
   columnHalfTwo.appendChild(nameTitle);
   nameTitle.appendChild(titleValueText);
+
+  var pencil = document.createElement('i');
+  pencil.classList.add('fa');
+  pencil.classList.add('fa-pencil');
+  pencil.setAttribute('data-entry-id', entry.entryId);
+  nameTitle.appendChild(pencil);
 
   var savedText = document.createElement('p');
   savedText.classList.add('saved-text');
@@ -121,3 +128,22 @@ var saveButton = document.querySelector('#save-button');
 saveButton.addEventListener('click', function () {
   viewSwap('entries');
 });
+
+function clickPencil(event) {
+
+  if (event.target.matches('i') === true) {
+    viewSwap('entry-form');
+    for (var i = 0; i < data.entries.length - 1; i++) {
+      var targetId = event.target.getAttribute('data-entry-id');
+      if ((data.entries[i].entryId) === targetId.valueOf()) {
+        var match = data.entries[i];
+        return match;
+      }
+      // console.log(data.entries[0].entryId, event.target.getAttribute('data-entry-id'), targetId.valueOf());
+    }
+    data.editing = match;
+  }
+}
+
+var faPencil = document.querySelector('ul');
+faPencil.addEventListener('click', clickPencil);
