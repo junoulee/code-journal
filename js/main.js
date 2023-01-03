@@ -5,6 +5,7 @@ var hiddenDiv = document.querySelector('.journal-entries');
 var toggler = document.querySelector('.no-entries');
 var $entries = document.querySelector('.entries');
 var $entryForm = document.querySelector('.entry-form');
+var newEntry = document.querySelector('h2');
 
 function showPic(event) {
   placeHolder.setAttribute('src', event.target.value);
@@ -14,6 +15,7 @@ photoPreview.addEventListener('input', showPic);
 
 function storeValues(event) {
   event.preventDefault();
+  // if (data.editing === null) {
   var titleValue = $form.elements.title.value;
   var urlValue = $form.elements.url.value;
   var notesValue = $form.elements.notes.value;
@@ -26,8 +28,21 @@ function storeValues(event) {
   placeHolder.setAttribute('src', './images/placeholder-image-square.jpg');
   viewSwap('entries');
   toggleNoEntries();
-  $form.reset();
 
+  // } else {
+
+  //   for (var i = 0; i < data.entries.length; i++) {
+  //     if (data.editing.entryId === data.entries[i].entryId) {
+  //       data.entries[i].replaceWith(data.entries[0]);
+  //     }
+
+  //   }
+
+  // }
+  // if (data.view === 'entry-form') {
+  //   data.editing = null;
+  // }
+  $form.reset();
 }
 
 $form.addEventListener('submit', storeValues);
@@ -112,6 +127,7 @@ function viewSwap(view) {
     $entries.className = 'hidden';
     $entryForm.className = 'entry-form';
     data.view = 'entry-form';
+    newEntry.textContent = 'New Entry';
   }
 
 }
@@ -133,15 +149,18 @@ function clickPencil(event) {
 
   if (event.target.matches('i') === true) {
     viewSwap('entry-form');
-    for (var i = 0; i < data.entries.length - 1; i++) {
-      var targetId = event.target.getAttribute('data-entry-id');
-      if ((data.entries[i].entryId) === targetId.valueOf()) {
+    newEntry.textContent = 'Edit Entry';
+    for (var i = 0; i < data.entries.length; i++) {
+      var targetId = Number(event.target.getAttribute('data-entry-id'));
+      if ((data.entries[i].entryId) === targetId) {
         var match = data.entries[i];
-        return match;
+        data.editing = match;
+        $form.elements.title.value = data.editing.title;
+        $form.elements.url.value = data.editing.url;
+        $form.elements.notes.value = data.editing.notes;
       }
-      // console.log(data.entries[0].entryId, event.target.getAttribute('data-entry-id'), targetId.valueOf());
     }
-    data.editing = match;
+
   }
 }
 
