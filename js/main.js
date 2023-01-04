@@ -15,7 +15,7 @@ photoPreview.addEventListener('input', showPic);
 
 function storeValues(event) {
   event.preventDefault();
-  // if (data.editing === null) {
+
   var titleValue = $form.elements.title.value;
   var urlValue = $form.elements.url.value;
   var notesValue = $form.elements.notes.value;
@@ -29,20 +29,19 @@ function storeValues(event) {
   viewSwap('entries');
   toggleNoEntries();
 
-  // } else {
+  if (data.editing !== null) {
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.editing.entryId === data.entries[i].entryId) {
+        data.entries[0].entryId = data.entries[i].entryId;
+        data.entries.splice([i], 1);
+      }
 
-  //   for (var i = 0; i < data.entries.length; i++) {
-  //     if (data.editing.entryId === data.entries[i].entryId) {
-  //       data.entries[i].replaceWith(data.entries[0]);
-  //     }
+    }
 
-  //   }
-
-  // }
-  // if (data.view === 'entry-form') {
-  //   data.editing = null;
-  // }
+    data.editing = null;
+  }
   $form.reset();
+
 }
 
 $form.addEventListener('submit', storeValues);
@@ -128,6 +127,8 @@ function viewSwap(view) {
     $entryForm.className = 'entry-form';
     data.view = 'entry-form';
     newEntry.textContent = 'New Entry';
+    data.editing = null;
+    placeHolder.setAttribute('src', './images/placeholder-image-square.jpg');
   }
 
 }
@@ -158,6 +159,7 @@ function clickPencil(event) {
         $form.elements.title.value = data.editing.title;
         $form.elements.url.value = data.editing.url;
         $form.elements.notes.value = data.editing.notes;
+
       }
     }
 
