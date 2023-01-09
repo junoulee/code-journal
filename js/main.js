@@ -33,13 +33,16 @@ function storeValues(event) {
     for (var i = 0; i < data.entries.length; i++) {
       if (data.editing.entryId === data.entries[i].entryId) {
         data.entries[0].entryId = data.entries[i].entryId;
-        data.entries.splice([i], 1);
+        data.entries.splice(i, 1, data.entries[0]);
+        // data.editing.replaceWith(fieldList);
       }
 
     }
-
+    data.entries.shift();
     data.editing = null;
+
   }
+
   $form.reset();
 
 }
