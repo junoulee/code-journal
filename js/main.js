@@ -19,32 +19,36 @@ function storeValues(event) {
   var titleValue = $form.elements.title.value;
   var urlValue = $form.elements.url.value;
   var notesValue = $form.elements.notes.value;
-  var fieldEntries = { title: titleValue, url: urlValue, notes: notesValue, entryId: data.nextEntryId };
-  data.entries.unshift(fieldEntries);
+  var entryData = { title: titleValue, url: urlValue, notes: notesValue };
 
-  data.nextEntryId++;
-  var fieldList = renderEntry(fieldEntries);
-  hiddenDiv.prepend(fieldList);
-  placeHolder.setAttribute('src', './images/placeholder-image-square.jpg');
-  viewSwap('entries');
-  toggleNoEntries();
-
-  if (data.editing !== null) {
+  if (data.editing === null) {
+    entryData.entryId = data.nextEntryId;
+    data.nextEntryId++;
+    data.entries.unshift(entryData);
+    var $newEntry = renderEntry(entryData);
+    hiddenDiv.prepend($newEntry);
+  } else {
+    entryData.entryId = data.editing.entryId;
     for (var i = 0; i < data.entries.length; i++) {
       if (data.editing.entryId === data.entries[i].entryId) {
-        data.entries[0].entryId = data.entries[i].entryId;
-        data.entries.splice(i, 1, data.entries[0]);
-        // data.editing.replaceWith(fieldList);
+        data.entries.splice(i, 1, entryData);
+        var savedEntries = document.querySelectorAll('li');
+
+        for (i = 0; i < savedEntries.length; i++) {
+          if (Number(savedEntries[i].getAttribute('data-entry-id')) === entryData.entryId) {
+            var updatedEntry = renderEntry(entryData);
+            savedEntries[i].replaceWith(updatedEntry);
+          }
+        }
       }
 
     }
-    data.entries.shift();
-    data.editing = null;
-
   }
-
+  placeHolder.setAttribute('src', './images/placeholder-image-square.jpg');
+  viewSwap('entries');
+  toggleNoEntries();
+  data.editing = null;
   $form.reset();
-
 }
 
 $form.addEventListener('submit', storeValues);
