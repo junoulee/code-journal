@@ -22,6 +22,7 @@ function storeValues(event) {
   var entryData = { title: titleValue, url: urlValue, notes: notesValue };
 
   if (data.editing === null) {
+
     entryData.entryId = data.nextEntryId;
     data.nextEntryId++;
     data.entries.unshift(entryData);
@@ -166,11 +167,12 @@ function clickPencil(event) {
         $form.elements.title.value = data.editing.title;
         $form.elements.url.value = data.editing.url;
         $form.elements.notes.value = data.editing.notes;
-
+        placeHolder.setAttribute('src', data.editing.url);
       }
     }
 
   }
+
 }
 
 var faPencil = document.querySelector('ul');
