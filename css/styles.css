@@ -1,6 +1,6 @@
 body {
   background-color: rgb(240, 240, 240);
-  font-family: sans-serif;
+  font-family: "Proza Libre", sans-serif;
 }
 
 .purple {
@@ -28,6 +28,46 @@ h2 {
 .image {
   display: flex;
   justify-content: center;
+}
+
+#modal-div {
+  position: fixed;
+  right: 150px;
+  bottom: 250px;
+  padding: 20px 10px 10px;
+  height: 150px;
+  background-color: white;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 2px 2px 2px gray;
+}
+
+.modal-text {
+  padding-bottom: 30px;
+}
+
+#cancel-button {
+  background-color: #b6b6b6;
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  margin-left: 5px;
+  cursor: pointer;
+  width: 90px;
+  font-weight: 600;
+}
+
+#confirm-button {
+  float: right;
+  background-color: #dc2626;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  margin-right: 5px;
+  cursor: pointer;
+  width: 90px;
+  font-weight: 600;
 }
 
 .placeholder,
@@ -73,6 +113,16 @@ h2 {
   border-style: none;
   text-align: center;
   vertical-align: center;
+  cursor: pointer;
+}
+
+#red-button {
+  border: none;
+  color: red;
+  text-decoration: underline;
+  margin-top: 18px;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 #new-button {
@@ -92,10 +142,15 @@ h2 {
   padding-top: 10px;
   margin-right: 20px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .bottom-section {
   margin-bottom: 80px;
+}
+
+.journal-form {
+  position: relative;
 }
 
 .journal-entries {
@@ -113,13 +168,14 @@ h2 {
 }
 
 .smaller-text {
-  font-size: 0.85rem;
+  font-size: 1rem;
   padding-left: 25px;
 }
 
 #entry-button {
   text-decoration: none;
   color: white;
+  cursor: pointer;
 }
 
 .no-entries {
@@ -143,11 +199,42 @@ h2 {
   cursor: pointer;
 }
 
+.overlay {
+  position: fixed;
+  background:
+    linear-gradient(
+      rgba(33, 32, 32, 0.8),
+      rgb(33, 32, 32, 0.8)
+    );
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.code-journal {
+  font-family: "Proza Libre", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 200;
+}
+
 @media screen and (min-width: 768px) {
   .title-input {
     margin-top: 90px;
     margin-left: -50px;
     margin-right: 50px;
+  }
+
+  #modal-div {
+    position: absolute;
+    right: 275px;
+    bottom: 400px;
+    padding: 20px 10px 10px;
+    height: 150px;
+    background-color: white;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 2px 2px 2px gray;
   }
 
   .placeholder,
@@ -156,7 +243,9 @@ h2 {
   }
 
   .code-journal {
-    padding-left: 25px;
+    font-family: "Proza Libre", sans-serif;
+    font-size: 1.3rem;
+    font-weight: 200;
   }
 
   .form-box {

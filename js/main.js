@@ -39,10 +39,10 @@ function storeValues(event) {
           if (Number(savedEntries[i].getAttribute('data-entry-id')) === entryData.entryId) {
             var updatedEntry = renderEntry(entryData);
             savedEntries[i].replaceWith(updatedEntry);
+            redButton.className = 'hidden';
           }
         }
       }
-
     }
   }
   placeHolder.setAttribute('src', './images/placeholder-image-square.jpg');
@@ -96,21 +96,16 @@ function renderEntry(entry) {
   savedText.appendChild(notesValueText);
 
   return bullets;
-
 }
 
 function dataLoop() {
 
   for (var i = 0; i < data.entries.length; i++) {
     var entriesDOM = renderEntry(data.entries[i]);
-
     hiddenDiv.appendChild(entriesDOM);
   }
-
   viewSwap(data.view);
-
   toggleNoEntries();
-
 }
 
 document.addEventListener('DOMContentLoaded', dataLoop);
@@ -129,7 +124,8 @@ function viewSwap(view) {
     $entryForm.className = 'hidden';
     $entries.className = 'entries';
     data.view = 'entries';
-
+    data.editing = null;
+    $form.reset();
   } else if ($entryForm.getAttribute('data-view') === view) {
     $entries.className = 'hidden';
     $entryForm.className = 'entry-form';
@@ -137,6 +133,7 @@ function viewSwap(view) {
     newEntry.textContent = 'New Entry';
     data.editing = null;
     placeHolder.setAttribute('src', './images/placeholder-image-square.jpg');
+
   }
 
 }
@@ -168,12 +165,57 @@ function clickPencil(event) {
         $form.elements.url.value = data.editing.url;
         $form.elements.notes.value = data.editing.notes;
         placeHolder.setAttribute('src', data.editing.url);
+        redButton.className = 'red-button';
       }
     }
-
   }
 
 }
 
 var faPencil = document.querySelector('ul');
 faPencil.addEventListener('click', clickPencil);
+
+function deleteEntry(event) {
+  if (event.target === redButton) {
+    modalDiv.className = 'modal';
+    overlay.className = 'overlay';
+  }
+}
+
+function cancelModal(event) {
+  if (event.target === cancelButton) {
+    modalDiv.className = 'hidden';
+    overlay.className = 'hidden';
+  }
+
+}
+
+function confirmModal(event) {
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.editing.entryId === data.entries[i].entryId) {
+      data.entries.splice(i, 1);
+      toggleNoEntries();
+      var savedEntries = document.querySelectorAll('li');
+      for (i = 0; i < savedEntries.length; i++) {
+        if (Number(savedEntries[i].getAttribute('data-entry-id')) === data.editing.entryId) {
+          savedEntries[i].remove();
+        }
+      }
+    }
+  }
+  data.editing = null;
+  $form.reset();
+  modalDiv.className = 'hidden';
+  overlay.className = 'hidden';
+  redButton.className = 'hidden';
+  viewSwap('entries');
+}
+
+var redButton = document.querySelector('#red-button');
+var modalDiv = document.querySelector('#modal-div');
+var overlay = document.querySelector('#overlay-div');
+var cancelButton = document.querySelector('#cancel-button');
+var confirmButton = document.querySelector('#confirm-button');
+redButton.addEventListener('click', deleteEntry);
+cancelButton.addEventListener('click', cancelModal);
+confirmButton.addEventListener('click', confirmModal);
