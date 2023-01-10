@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Journal</title>
   <link rel="icon" href="images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Proza+Libre:wght@400;500&display=swap" rel="stylesheet">
+  <style> @import url('https://fonts.googleapis.com/css2?family=Proza+Libre:wght@400;500&display=swap'); </style>
+  <style> @import url('https://fonts.googleapis.com/css2?family=Proza+Libre&display=swap'); </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Proza+Libre&display=swap" rel="stylesheet">
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -39,6 +43,16 @@
      src="./images/placeholder-image-square.jpg"
      alt="Photo URL Image">
               </div>
+              <div class="hidden" id="overlay-div"></div>
+              <div class="hidden" id="modal-div">
+                <p class="modal-text"> Are you sure you want to delete this entry?</p>
+                <div class="modal-buttons">
+                  <input type="button" name="cancel" id="cancel-button"
+ value="CANCEL" />
+                  <input type="button" name="confirm" id="confirm-button"
+ value="CONFIRM" />
+                </div>
+              </div>
             </div>
           </div>
 
@@ -64,7 +78,8 @@
                 <div class="notes-section">
                   <label for="notes">Notes</label>
                   <textarea required id="notes" class="input-text" name="notes" cols="20" rows="8"  ></textarea>
-
+                  <input type="button" name="delete" class="hidden" id="red-button"
+ value="Delete Entry" />
                   <input type="submit" name="save" id="save-button"
  value="SAVE" />
                 </div>
