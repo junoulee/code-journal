@@ -124,7 +124,8 @@ function viewSwap(view) {
     $entryForm.className = 'hidden';
     $entries.className = 'entries';
     data.view = 'entries';
-
+    data.editing = null;
+    $form.reset();
   } else if ($entryForm.getAttribute('data-view') === view) {
     $entries.className = 'hidden';
     $entryForm.className = 'entry-form';
@@ -168,6 +169,7 @@ function clickPencil(event) {
       }
     }
   }
+
 }
 
 var faPencil = document.querySelector('ul');
@@ -185,6 +187,7 @@ function cancelModal(event) {
     modalDiv.className = 'hidden';
     overlay.className = 'hidden';
   }
+
 }
 
 function confirmModal(event) {
