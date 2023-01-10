@@ -135,6 +135,14 @@ h2 {
   display: none;
 }
 
+.fa-pencil,
+.pencil-button {
+  color: rgb(86, 43, 129);
+  float: right;
+  font-size: 20px;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 768px) {
   .title-input {
     margin-top: 90px;
